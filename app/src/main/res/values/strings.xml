@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Youtube_Video_Downloader</string>
+    <string name="options">Options</string>
+    <string name="auto_download">Auto Download</string>
+    <string name="simply_copy_the_link_of_video_to_start_download">Copy the link to start download</string>
+    <string name="auto_download_title_notification">Auto Download Service</string>
+    <string name="auto_download_title_notification_start">Copy the link of video to start download</string>
+    <string name="stop_btn">Stop</string>
+    <string name="restarted_service">Service restarted</string>
+    <string name="downloading_des">Downloading</string>
+    <string name="url_not_suppotr">This url not supported or no media found!</string>
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_videocam_black_24dp"
+        android:drawableEnd="@drawable/ic_volume_up_black_24dp"
+        android:gravity="center_horizontal"
+        android:text=" Video | Music "
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text=" How To Download "
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text=" description "
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text=" - - - - - - - - - "
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="29sp"
+
+        />
+
+    <Button
+        android:id="@+id/watch_video_btn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="#02CA67"
+        android:text="Watch Video" />
+
+    <TextView
+        android:id="@+id/goto_youtube_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text=" (goto youtube) "
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#BE208F"
+        android:orientation="vertical"
+
+        >
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:isIndicator="true"
+            android:numStars="5"
+
+            android:rating="5"
+            android:stepSize="0.1" />
+
+        <TextView
+            android:id="@+id/rate_us_btn"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text=" Rate Us 5 Stars "
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#02CA67"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="16.0dip"
+            android:text="@string/options"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18.0sp"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:tint="@android:color/white"
+                android:id="@+id/ic_info_auto_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16.0dip"
+                android:src="@drawable/ic_download_24dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ic_info_auto_download"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2.0dip"
+                    android:text="@string/auto_download"
+                    android:textColor="@android:color/white"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="@string/simply_copy_the_link_of_video_to_start_download" />
+            </LinearLayout>
+
+            <CheckBox
+
+                android:id="@+id/chkAutoDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16.0dip" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
