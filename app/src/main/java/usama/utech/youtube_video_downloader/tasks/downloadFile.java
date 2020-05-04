@@ -12,7 +12,6 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import java.io.File;
 
 import static usama.utech.youtube_video_downloader.utils.Constants.DOWNLOAD_DIRECTORY;
@@ -71,7 +70,6 @@ public class downloadFile {
             request.setDestinationInExternalPublicDir(Dir, cutTitle);
 
         }
-
 
 
         request.allowScanningByMediaScanner();

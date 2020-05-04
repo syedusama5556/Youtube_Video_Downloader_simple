@@ -8,15 +8,11 @@ import java.net.URL;
 import java.util.regex.Pattern;
 
 public class Constants {
-    public  static String  PREF_CLIP = "ytdVideoDownloader";
-  public static String DOWNLOAD_DIRECTORY  = "ytdVideoDownloader";
-   public static String PREF_APPNAME  = "ytdVideoDownloader";
-
-       public  static final String   STARTFOREGROUND_ACTION = "usama.utech.youtube_video_downloader.action.startforeground";
-    public  static final String STOPFOREGROUND_ACTION = "usama.utech.youtube_video_downloader.action.stopforeground";
-
-
-
+    public static final String STARTFOREGROUND_ACTION = "usama.utech.youtube_video_downloader.action.startforeground";
+    public static final String STOPFOREGROUND_ACTION = "usama.utech.youtube_video_downloader.action.stopforeground";
+    public static String PREF_CLIP = "ytdVideoDownloader";
+    public static String DOWNLOAD_DIRECTORY = "ytdVideoDownloader";
+    public static String PREF_APPNAME = "ytdVideoDownloader";
 
     public static boolean checkURL(CharSequence input) {
         if (TextUtils.isEmpty(input)) {

@@ -50,12 +50,12 @@ public class DownloadVideoActivity extends AppCompatActivity {
             }
 
         }
-binding.backBtn.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        DownloadVideoActivity.super.onBackPressed();
-    }
-});
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DownloadVideoActivity.super.onBackPressed();
+            }
+        });
 
     }
 

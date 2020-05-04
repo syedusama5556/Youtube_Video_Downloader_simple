@@ -7,7 +7,6 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import static usama.utech.youtube_video_downloader.utils.Constants.STARTFOREGROUND_ACTION;
 
 

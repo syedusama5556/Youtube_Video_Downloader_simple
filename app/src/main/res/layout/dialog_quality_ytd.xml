@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:gravity="center_horizontal"
     android:background="#F4F4F4"
-    android:orientation="vertical"
-    android:minWidth="250dp"
+    android:gravity="center_horizontal"
     android:maxWidth="250dp"
+    android:minWidth="250dp"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <ImageView

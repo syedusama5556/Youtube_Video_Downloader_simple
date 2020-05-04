@@ -22,13 +22,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
@@ -68,7 +61,7 @@ public class downloadVideo {
             pd.setCancelable(false);
             pd.show();
         }
-         if (url.contains("youtube.com") || url.contains("youtu.be")) {
+        if (url.contains("youtube.com") || url.contains("youtu.be")) {
             //  String youtubeLink = "https://www.youtube.com/watch?v=668nUCeBHyY";
             Log.i("LOGClipboard111111 clip", "work 3");
             getYoutubeDownloadUrl(url);
@@ -81,7 +74,6 @@ public class downloadVideo {
                     @Override
                     public void handleMessage(Message message) {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-
 
 
                     }
@@ -145,19 +137,19 @@ public class downloadVideo {
                         size = WindowManager.LayoutParams.WRAP_CONTENT;
                     }
 
-                        params = new WindowManager.LayoutParams(
-                                size,
-                                WindowManager.LayoutParams.WRAP_CONTENT,
-                                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                                        | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-                                        | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
-                                        | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                                PixelFormat.TRANSLUCENT);
+                    params = new WindowManager.LayoutParams(
+                            size,
+                            WindowManager.LayoutParams.WRAP_CONTENT,
+                            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+                            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                                    | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                                    | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
+                                    | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                            PixelFormat.TRANSLUCENT);
 
-                        params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
-                        params.x = 0;
-                        params.y = 100;
+                    params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
+                    params.x = 0;
+                    params.y = 100;
 
                     // mainLayout.setLayoutParams(params);
 

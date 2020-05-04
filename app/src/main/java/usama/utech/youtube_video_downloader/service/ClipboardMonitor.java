@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
@@ -41,7 +40,6 @@ public class ClipboardMonitor extends Service {
                     String newClip = mCM.getPrimaryClip().getItemAt(0).getText().toString();
                     //   Toast.makeText(getApplicationContext(), newClip, Toast.LENGTH_LONG).show();
                     Log.i("LOGClipboard111111 clip", newClip + "");
-
 
 
                     downloadVideo.Start(getApplicationContext(), newClip, true);
@@ -103,7 +101,7 @@ public class ClipboardMonitor extends Service {
 
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, getPackageName() )
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, getPackageName())
                 .setSmallIcon(R.drawable.ic_download_24dp)
                 .setContentTitle(getString(R.string.auto_download_title_notification))
                 .setContentText(getString(R.string.auto_download_title_notification_start))

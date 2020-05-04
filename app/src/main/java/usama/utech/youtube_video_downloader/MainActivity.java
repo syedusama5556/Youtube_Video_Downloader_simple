@@ -14,6 +14,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+
+        setSupportActionBar(binding.toolbarD);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         pref = getSharedPreferences(PREF_CLIP, 0);// 0 - for private mode
         prefEditor = pref.edit();
@@ -83,14 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.rateUsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Toast.makeText(MainActivity.this, "work", Toast.LENGTH_SHORT).show();
 
-                launchMarket();
-            }
-        });
         binding.chkAutoDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, 123);
             return;
         }
-        
+
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
             if (!checkIfAlreadyhavePermission()) {
                 requestForSpecificPermission();
@@ -129,12 +127,47 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
+
+    public void shareApp(Context context) {
+        final String appPackageName = context.getPackageName();
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out the App at: https://play.google.com/store/apps/details?id=" + appPackageName);
+        sendIntent.setType("text/plain");
+        context.startActivity(sendIntent);
+    }
+
     private boolean checkIfAlreadyhavePermission() {
         int result = ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            return false;
+        return result == PackageManager.PERMISSION_GRANTED;
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.exit_m:
+                System.exit(0);
+                return true;
+            case R.id.share_m:
+                shareApp(MainActivity.this);
+
+                return true;
+            case R.id.star_m:
+
+                launchMarket();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -156,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
     private void requestForSpecificPermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
     }
+
     void createNotificationChannel(
             Context context,
             int importance,

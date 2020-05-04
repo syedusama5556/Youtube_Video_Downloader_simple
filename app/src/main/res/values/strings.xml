@@ -9,4 +9,6 @@
     <string name="restarted_service">Service restarted</string>
     <string name="downloading_des">Downloading</string>
     <string name="url_not_suppotr">This url not supported or no media found!</string>
+    <string name="how_the_app_works"><strong>How the App Works</strong></string>
+    <string name="whats_new"><strong>Whats New?</strong></string>
 </resources>
