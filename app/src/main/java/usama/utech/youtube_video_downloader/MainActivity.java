@@ -179,7 +179,10 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case 101:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "permission granted", Toast.LENGTH_SHORT).show();
+
+
+                    //    Toast.makeText(this, "permission granted", Toast.LENGTH_SHORT).show();
+
                 } else {
                     //not granted
                 }
