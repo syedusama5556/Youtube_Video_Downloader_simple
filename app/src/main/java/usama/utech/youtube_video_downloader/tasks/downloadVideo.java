@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,7 +16,6 @@ import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -207,8 +207,17 @@ public class downloadVideo {
         btnText += (ytfile.getFormat().isDashContainer()) ? " dash" : "";
         Button btn = new Button(Mcontext);
 
-        btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(8, 8, 8, 8);
+        btn.setLayoutParams(params);
+
+        // btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        btn.setBackground(Mcontext.getResources().getDrawable(R.drawable.btn_bg_download_screen));
+        btn.setTextColor(Color.WHITE);
 
         btn.setText(btnText);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -227,9 +236,9 @@ public class downloadVideo {
 
                 String filename;
                 if (videoTitle.length() > 55) {
-                    filename = videoTitle.substring(0, 55) + "." + ytfile.getFormat().getExt();
+                    filename = videoTitle.substring(0, 55);
                 } else {
-                    filename = videoTitle + "." + ytfile.getFormat().getExt();
+                    filename = videoTitle;
                 }
                 filename = filename.replaceAll("[\\\\><\"|*?%:#/]", "");
 
@@ -239,8 +248,12 @@ public class downloadVideo {
 //                String downloadUrl = ytFiles.get(itag).getUrl();
 
 
-                new downloadFile().Downloading(Mcontext, ytfile.getUrl(), filename, ".mp4");
+                if (ytfile.getFormat().getExt().equals("m4a")) {
+                    new downloadFile().Downloading(Mcontext, ytfile.getUrl(), filename, ".mp3");
+                } else {
+                    new downloadFile().Downloading(Mcontext, ytfile.getUrl(), filename, "." + ytfile.getFormat().getExt());
 
+                }
 
                 dialogquality.dismiss();
             }

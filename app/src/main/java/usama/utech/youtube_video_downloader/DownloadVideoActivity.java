@@ -3,11 +3,11 @@ package usama.utech.youtube_video_downloader;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -137,8 +137,16 @@ public class DownloadVideoActivity extends AppCompatActivity {
         btnText += (ytfile.getFormat().isDashContainer()) ? " dash" : "";
         Button btn = new Button(this);
 
-        btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(8, 8, 8, 8);
+        btn.setLayoutParams(params);
 
+        // btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        btn.setBackground(getResources().getDrawable(R.drawable.btn_bg_download_screen));
+        btn.setTextColor(Color.WHITE);
 
         btn.setText(btnText);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -148,9 +156,9 @@ public class DownloadVideoActivity extends AppCompatActivity {
 
                 String filename;
                 if (videoTitle.length() > 55) {
-                    filename = videoTitle.substring(0, 55) + "." + ytfile.getFormat().getExt();
+                    filename = videoTitle.substring(0, 55);
                 } else {
-                    filename = videoTitle + "." + ytfile.getFormat().getExt();
+                    filename = videoTitle;
                 }
                 filename = filename.replaceAll("[\\\\><\"|*?%:#/]", "");
 
@@ -159,9 +167,12 @@ public class DownloadVideoActivity extends AppCompatActivity {
 //
 //                String downloadUrl = ytFiles.get(itag).getUrl();
 
+                if (ytfile.getFormat().getExt().equals("m4a")) {
+                    new downloadFile().Downloading(DownloadVideoActivity.this, ytfile.getUrl(), filename, ".mp3");
+                } else {
+                    new downloadFile().Downloading(DownloadVideoActivity.this, ytfile.getUrl(), filename, "." + ytfile.getFormat().getExt());
 
-                new downloadFile().Downloading(DownloadVideoActivity.this, ytfile.getUrl(), filename, ".mp4");
-
+                }
 
             }
         });
