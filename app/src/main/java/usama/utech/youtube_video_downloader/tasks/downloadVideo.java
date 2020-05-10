@@ -74,8 +74,6 @@ public class downloadVideo {
                     @Override
                     public void handleMessage(Message message) {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-
-
                     }
                 };
             }

@@ -106,20 +106,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            binding.autodownloadLayoutCard.setVisibility(View.GONE);
+
+        } else {
+
+            binding.autodownloadLayoutCard.setVisibility(View.VISIBLE);
+        }
 
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
             if (!checkIfAlreadyhavePermission()) {
                 requestForSpecificPermission();
             }
+
+            if (android.os.Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {   //Android M Or Over
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, 123);
+                return;
+            }
+
         }
 
 
-        if (android.os.Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {   //Android M Or Over
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, 123);
-            return;
-        }
+
 
         createNotificationChannel(
                 this,
