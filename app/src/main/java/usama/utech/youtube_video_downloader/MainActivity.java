@@ -1,6 +1,7 @@
 package usama.utech.youtube_video_downloader;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,6 +18,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +27,20 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import usama.utech.youtube_video_downloader.databinding.ActivityMainBinding;
 import usama.utech.youtube_video_downloader.service.ClipboardMonitor;
 import usama.utech.youtube_video_downloader.service.Receiver;
 import usama.utech.youtube_video_downloader.tasks.downloadVideo;
 import usama.utech.youtube_video_downloader.utils.Constants;
+import usama.utech.youtube_video_downloader.utils.LocaleHelper;
 
 import static usama.utech.youtube_video_downloader.utils.Constants.PREF_CLIP;
 import static usama.utech.youtube_video_downloader.utils.Constants.STARTFOREGROUND_ACTION;
@@ -40,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences pref;
     private SharedPreferences.Editor prefEditor;
     private boolean csRunning;
+    private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +70,39 @@ public class MainActivity extends AppCompatActivity {
         prefEditor = pref.edit();
         csRunning = pref.getBoolean("csRunning", false);
 
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.AdmobInterstitial));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
 
         binding.watchVideoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
-                    Intent intent = new Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
-                    intent.setPackage("com.google.android.youtube");
-                    startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+
+
+                    if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
+                        Intent intent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
+                        intent.setPackage("com.google.android.youtube");
+                        startActivity(intent);
+                    }
+                } else {
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+                    if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
+                        Intent intent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
+                        intent.setPackage("com.google.android.youtube");
+                        startActivity(intent);
+                    }
                 }
+
 
             }
         });
@@ -75,16 +110,36 @@ public class MainActivity extends AppCompatActivity {
         binding.gotoYoutubeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+
+                    if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
+                        Intent intent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
+                        intent.setPackage("com.google.android.youtube");
+                        startActivity(intent);
+                    }
+
+
+                } else {
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+                    if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
+                        Intent intent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
+                        intent.setPackage("com.google.android.youtube");
+                        startActivity(intent);
+                    }
+                }
+
+
 
                 //  Toast.makeText(MainActivity.this, "work", Toast.LENGTH_SHORT).show();
 
-                if (isPackageInstalled(MainActivity.this, "com.google.android.youtube")) {
-                    Intent intent = new Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("https://www.youtube.com/watch?v=5X7WWVTrBvM"));
-                    intent.setPackage("com.google.android.youtube");
-                    startActivity(intent);
-                }
+
             }
         });
 
@@ -94,14 +149,36 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean checked = binding.chkAutoDownload.isChecked();
 
-                if (checked) {
-                    Log.e("loged", "testing checked!");
-                    startClipboardMonitor();
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+
+
+                    if (checked) {
+                        Log.e("loged", "testing checked!");
+                        startClipboardMonitor();
+                    } else {
+                        Log.e("loged", "testing unchecked!");
+                        stopClipboardMonitor();
+                        // setNofication(false);
+                    }
+
                 } else {
-                    Log.e("loged", "testing unchecked!");
-                    stopClipboardMonitor();
-                    // setNofication(false);
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+                    if (checked) {
+                        Log.e("loged", "testing checked!");
+                        startClipboardMonitor();
+                    } else {
+                        Log.e("loged", "testing unchecked!");
+                        stopClipboardMonitor();
+                        // setNofication(false);
+                    }
+
                 }
+
+
             }
         });
 
@@ -129,16 +206,61 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         createNotificationChannel(
                 this,
                 NotificationManagerCompat.IMPORTANCE_LOW,
                 true,
                 getString(R.string.app_name),
-                "Auto Download"
+                getString(R.string.auto)
         );
 
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                //      Toast.makeText(MainActivity.this, "ad loddd", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                //     Toast.makeText(MainActivity.this, "ad loddd err "+errorCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
+
+        mAdView.loadAd(adRequest);
     }
 
 
@@ -146,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
         final String appPackageName = context.getPackageName();
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out the App at: https://play.google.com/store/apps/details?id=" + appPackageName);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.chge) + " " + " https://play.google.com/store/apps/details?id=" + appPackageName);
         sendIntent.setType("text/plain");
         context.startActivity(sendIntent);
     }
@@ -175,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
                 shareApp(MainActivity.this);
 
                 return true;
+
+            case R.id.action_language:
+
+                showlanguageDialog();
+                return true;
             case R.id.star_m:
 
                 launchMarket();
@@ -182,6 +309,47 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showlanguageDialog() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_change_language);
+
+        TextView l_english = dialog.findViewById(R.id.l_english);
+        l_english.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocaleHelper.setLocale(MainActivity.this, "en");
+
+                recreate();
+                dialog.dismiss();
+            }
+        });
+
+        TextView l_turkish = dialog.findViewById(R.id.l_turkey);
+        l_turkish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocaleHelper.setLocale(MainActivity.this, "tr");
+
+                recreate();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+        Context newBase2 = newBase;
+        newBase2 = LocaleHelper.onAttach(newBase2);
+
+        super.attachBaseContext(newBase2);
     }
 
     @Override
@@ -237,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             startActivity(myAppLinkToMarket);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.unable, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -298,7 +466,7 @@ public class MainActivity extends AppCompatActivity {
 
         //if (iUtils.checkURL(url)) {
         if (url.equals("") && Constants.checkURL(url)) {
-            Toast.makeText(this, "Enter Valid Url", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.enterv, Toast.LENGTH_SHORT).show();
         } else {
             downloadVideo.Start(this, url, false);
 

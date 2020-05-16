@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_language"
+        android:icon="@drawable/ic_language_black_24dp"
+        android:title="Language"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/star_m"
         android:icon="@drawable/ic_star_border_black_24dp"
-        android:title="Item"
+        android:title="Rate"
         app:showAsAction="always" />
     <item
         android:id="@+id/share_m"
         android:icon="@drawable/ic_share_black_24dp"
-        android:title="Item"
-        app:showAsAction="always" />
+        android:title="Share"
+        app:showAsAction="never" />
     <item
         android:id="@+id/exit_m"
         android:title="Exit" />

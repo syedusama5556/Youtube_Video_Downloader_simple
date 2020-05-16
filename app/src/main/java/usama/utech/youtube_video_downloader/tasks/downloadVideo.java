@@ -57,7 +57,7 @@ public class downloadVideo {
         }
         if (!fromService) {
             pd = new ProgressDialog(context);
-            pd.setMessage("genarating download link");
+            pd.setMessage(context.getString(R.string.gen));
             pd.setCancelable(false);
             pd.show();
         }
@@ -183,7 +183,7 @@ public class downloadVideo {
                     Handler mHandler = new Handler(Looper.getMainLooper()) {
                         @Override
                         public void handleMessage(Message message) {
-                            Toast.makeText(Mcontext, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Mcontext, R.string.err, Toast.LENGTH_SHORT).show();
 
                         }
                     };

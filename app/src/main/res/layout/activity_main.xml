@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -10,6 +11,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+        android:id="@+id/appbr"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
@@ -26,177 +28,199 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jet Tube"
+                android:text="@string/jet_tube"
                 android:textColor="@android:color/white"
                 android:textSize="25.0sp"
                 android:textStyle="bold" />
+
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <LinearLayout
-        android:id="@+id/llTips"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16.0dip"
-        android:layout_marginTop="16.0dip"
-        android:layout_marginRight="16.0dip"
-        android:background="@drawable/tips_background"
-        android:paddingTop="10.0dip"
-        android:paddingBottom="10.0dip"
-        android:visibility="visible">
+        android:layout_below="@id/appbr"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="3.0dip"
-            android:padding="16.0dip"
-            android:src="@drawable/ic_idea" />
 
         <LinearLayout
+
+            android:id="@+id/llTips"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/whats_new"
-                android:textColor="@color/colorTips"
-                android:textSize="15.0sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5.0dip"
-                android:text="Jettube 1.0 ver"
-                android:textColor="@color/colorTips"
-                android:textSize="13.0sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5.0dip"
-                android:text="@string/how_the_app_works"
-
-                android:textColor="@color/colorTips"
-                android:textSize="15.0sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5.0dip"
-                android:text="If you don't know how to use the app you should watch the video"
-                android:textColor="@color/colorTips"
-                android:textSize="13.0sp" />
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/watch_video_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_bg"
-        android:text="Watch Video"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/goto_youtube_btn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text=" (goto youtube) "
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
-        android:visibility="invisible"
-
-        />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/autodownload_layout_card"
-        android:layout_width="fill_parent"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10.0dip"
-        android:layout_marginBottom="15.0dip">
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="vertical"
+            android:layout_marginLeft="16.0dip"
+            android:layout_marginTop="16.0dip"
+            android:layout_marginRight="16.0dip"
+            android:background="@drawable/tips_background"
+            android:paddingTop="10.0dip"
+            android:paddingBottom="10.0dip"
             android:visibility="visible">
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3.0dip"
                 android:padding="16.0dip"
-                android:text="@string/options"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18.0sp"
-                android:textStyle="bold" />
+                android:src="@drawable/ic_idea" />
 
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10.0dip"
-                android:gravity="center_vertical">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/ic_info_auto_download"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:padding="16.0dip"
-                    android:src="@drawable/ic_download_24dp" />
+                    android:text="@string/whats_new"
+                    android:textColor="@color/colorTips"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/ic_info_auto_download"
-                    android:orientation="vertical">
+                    android:layout_marginTop="5.0dip"
+                    android:text="@string/jettube_1_0_ver"
+                    android:textColor="@color/colorTips"
+                    android:textSize="13.0sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2.0dip"
-                        android:text="@string/auto_download"
-                        android:textColor="@android:color/black"
-                        android:textSize="16.0sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/simply_copy_the_link_of_video_to_start_download" />
-                </LinearLayout>
-
-                <CheckBox
-                    android:id="@+id/chkAutoDownload"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
-                    android:buttonTint="@color/colorAccent" />
-            </RelativeLayout>
+                    android:layout_marginTop="5.0dip"
+                    android:text="@string/how_the_app_works"
+
+                    android:textColor="@color/colorTips"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip"
+                    android:text="@string/if_you_don_t_know_how_to_use_the_app_you_should_watch_the_video"
+                    android:textColor="@color/colorTips"
+                    android:textSize="13.0sp" />
+
+
+            </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+
+
+        <Button
+            android:id="@+id/watch_video_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/watch_video"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/goto_youtube_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/goto_youtube"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:visibility="invisible"
+
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/autodownload_layout_card"
+            android:layout_width="fill_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginBottom="15.0dip">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16.0dip"
+                    android:text="@string/options"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18.0sp"
+                    android:textStyle="bold" />
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10.0dip"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/ic_info_auto_download"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="16.0dip"
+                        android:src="@drawable/ic_download_24dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ic_info_auto_download"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2.0dip"
+                            android:text="@string/auto_download"
+                            android:textColor="@android:color/black"
+                            android:textSize="16.0sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/simply_copy_the_link_of_video_to_start_download" />
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/chkAutoDownload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16.0dip"
+                        android:buttonTint="@color/colorAccent" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="MEDIUM_RECTANGLE"
+        ads:adUnitId="@string/AdmobBanner" />
+</RelativeLayout>

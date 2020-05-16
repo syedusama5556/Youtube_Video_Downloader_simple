@@ -41,7 +41,7 @@ public class DownloadVideoActivity extends AppCompatActivity {
 
 
         progress = new ProgressDialog(DownloadVideoActivity.this);
-        progress.setMessage("loading");
+        progress.setMessage(getString(R.string.lod));
 
 
         if (Intent.ACTION_SEND.equals(action) && type != null) {

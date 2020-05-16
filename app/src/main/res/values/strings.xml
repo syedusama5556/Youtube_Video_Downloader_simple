@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Youtube_Video_Downloader</string>
+
+
+    <string name="AdmobAppId" translatable="false">ca-app-pub-9243738527809292~4560010891</string>
+    <string name="AdmobBanner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="AdmobInterstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+
     <string name="options">Options</string>
     <string name="auto_download">Auto Download</string>
     <string name="simply_copy_the_link_of_video_to_start_download">Copy the link to start download</string>
@@ -11,4 +18,21 @@
     <string name="url_not_suppotr">This url not supported or no media found!</string>
     <string name="how_the_app_works"><strong>How the App Works</strong></string>
     <string name="whats_new"><strong>Whats New?</strong></string>
+    <string name="jet_tube">Jet Tube</string>
+    <string name="back">Back</string>
+    <string name="jettube_1_0_ver">Jet tube 1.0 ver</string>
+    <string name="if_you_don_t_know_how_to_use_the_app_you_should_watch_the_video">If you don\'t know how to use the app you should watch the video</string>
+    <string name="watch_video">Watch Video</string>
+    <string name="goto_youtube">(goto youtube)</string>
+    <string name="select_quality">Select Quality</string>
+    <string name="chge">Check out the App at:</string>
+    <string name="auto">Auto Download</string>
+    <string name="unable">\" unable to find market app\"</string>
+    <string name="enterv">Enter Valid Url</string>
+    <string name="ddd">download Description</string>
+    <string name="started">Started</string>
+    <string name="gen">genarating download link</string>
+    <string name="err">Error</string>
+    <string name="lod">loading</string>
+
 </resources>

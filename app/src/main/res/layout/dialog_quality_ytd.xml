@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
-        android:text="Select Quality"
+        android:text="@string/select_quality"
         android:textColor="@color/colorPrimaryDark" />
 
 

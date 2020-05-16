@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Youtube_Video_Downloader</string>
+    <string name="options">Seçenekler</string>
+    <string name="auto_download">Otomatik Yükleme</string>
+    <string name="simply_copy_the_link_of_video_to_start_download">İndirme işlemini başlatmak için bağlantıyı kopyalayın</string>
+    <string name="auto_download_title_notification">Otomatik İndirme Hizmeti</string>
+    <string name="auto_download_title_notification_start">İndirmeye başlamak için video bağlantısını kopyalayın</string>
+    <string name="stop_btn">Dur</string>
+    <string name="restarted_service">Hizmet yeniden başlatıldı</string>
+    <string name="downloading_des">İndirilmesi</string>
+    <string name="url_not_suppotr">Bu URL desteklenmiyor veya medya bulunamadı!</string>
+    <string name="jet_tube">Jet Tüp</string>
+    <string name="back">Geri</string>
+    <string name="jettube_1_0_ver">Jet tüp 1.0 ver</string>
+    <string name="if_you_don_t_know_how_to_use_the_app_you_should_watch_the_video">Uygulamayı nasıl kullanacağınızı bilmiyorsanız videoyu izlemelisiniz</string>
+    <string name="watch_video">Video izle</string>
+    <string name="goto_youtube">(youtube\'a git)</string>
+    <string name="select_quality">Kaliteyi Seçin</string>
+    <string name="chge">Uygulamaya şu adresten göz atın:</string>
+    <string name="auto">Otomatik Yükleme</string>
+    <string name="unable">\"market uygulaması bulunamadı\"</string>
+    <string name="enterv">Geçerli URL\'yi girin</string>
+    <string name="ddd">indir Açıklama</string>
+    <string name="started">Başlatılan</string>
+    <string name="gen">indirme bağlantısı</string>
+    <string name="err">Hata</string>
+    <string name="lod">Yükleniyor</string>
+    <string name="how_the_app_works"><strong> Uygulama Nasıl Çalışır </strong></string>
+    <string name="whats_new"><strong> Neler Yeni? </strong></string>
+</resources>

@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import java.io.File;
 
+import usama.utech.youtube_video_downloader.R;
+
 import static usama.utech.youtube_video_downloader.utils.Constants.DOWNLOAD_DIRECTORY;
 import static usama.utech.youtube_video_downloader.utils.Constants.PREF_APPNAME;
 
@@ -38,7 +40,7 @@ public class downloadFile {
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setTitle(title);
-        request.setDescription("downloasd Des");
+        request.setDescription(context.getString(R.string.ddd));
 
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         String folderName = DOWNLOAD_DIRECTORY;
@@ -80,7 +82,7 @@ public class downloadFile {
             @Override
             public void handleMessage(Message message) {
 
-                Toast.makeText(context, "Started", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.started, Toast.LENGTH_SHORT).show();
 
             }
         };
