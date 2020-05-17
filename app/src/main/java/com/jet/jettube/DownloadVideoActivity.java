@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader;
+package com.jet.jettube;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -14,13 +14,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.jet.jettube.databinding.ActivityDownloadVideoBinding;
+import com.jet.jettube.tasks.downloadFile;
+
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
-import usama.utech.youtube_video_downloader.databinding.ActivityDownloadVideoBinding;
-import usama.utech.youtube_video_downloader.tasks.downloadFile;
 
-import static usama.utech.youtube_video_downloader.tasks.downloadVideo.Mcontext;
+import static com.jet.jettube.tasks.downloadVideo.Mcontext;
 
 public class DownloadVideoActivity extends AppCompatActivity {
     ActivityDownloadVideoBinding binding;
@@ -131,10 +132,10 @@ public class DownloadVideoActivity extends AppCompatActivity {
 
 
         // Display some buttons and let the user choose the format
-        String btnText = (ytfile.getFormat().getHeight() == -1) ? "Audio " +
+        String btnText = (ytfile.getFormat().getHeight() == -1) ? "MP3 " +
                 ytfile.getFormat().getAudioBitrate() + " kbit/s" :
                 ytfile.getFormat().getHeight() + "p";
-        btnText += (ytfile.getFormat().isDashContainer()) ? " dash" : "";
+        btnText += (ytfile.getFormat().isDashContainer()) ? " No Audio" : "";
         Button btn = new Button(this);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(

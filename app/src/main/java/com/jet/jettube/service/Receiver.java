@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.service;
+package com.jet.jettube.service;
 
 
 import android.content.BroadcastReceiver;
@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import static usama.utech.youtube_video_downloader.utils.Constants.PREF_CLIP;
+import static com.jet.jettube.utils.Constants.PREF_CLIP;
 
 public class Receiver extends BroadcastReceiver {
     //static FloatingViewService service;

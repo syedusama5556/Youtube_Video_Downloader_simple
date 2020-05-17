@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.service;
+package com.jet.jettube.service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
-import static usama.utech.youtube_video_downloader.utils.Constants.STARTFOREGROUND_ACTION;
+import static com.jet.jettube.utils.Constants.STARTFOREGROUND_ACTION;
 
 
 public class Restarter extends BroadcastReceiver {

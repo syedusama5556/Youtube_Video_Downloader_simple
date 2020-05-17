@@ -34,5 +34,9 @@
     <string name="gen">genarating download link</string>
     <string name="err">Error</string>
     <string name="lod">loading</string>
+    <string name="language">Language</string>
+    <string name="rate">Rate</string>
+    <string name="share">Share</string>
+    <string name="exit">Exit</string>
 
 </resources>

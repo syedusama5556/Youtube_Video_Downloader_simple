@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.utils;
+package com.jet.jettube.utils;
 
 import android.text.TextUtils;
 import android.util.Patterns;

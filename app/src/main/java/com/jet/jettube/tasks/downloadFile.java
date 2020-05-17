@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.tasks;
+package com.jet.jettube.tasks;
 
 import android.app.DownloadManager;
 import android.content.Context;
@@ -12,12 +12,12 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.jet.jettube.R;
+
 import java.io.File;
 
-import usama.utech.youtube_video_downloader.R;
-
-import static usama.utech.youtube_video_downloader.utils.Constants.DOWNLOAD_DIRECTORY;
-import static usama.utech.youtube_video_downloader.utils.Constants.PREF_APPNAME;
+import static com.jet.jettube.utils.Constants.DOWNLOAD_DIRECTORY;
+import static com.jet.jettube.utils.Constants.PREF_APPNAME;
 
 
 public class downloadFile {

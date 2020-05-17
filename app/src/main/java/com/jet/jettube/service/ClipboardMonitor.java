@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.service;
+package com.jet.jettube.service;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -17,13 +17,13 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
-import usama.utech.youtube_video_downloader.MainActivity;
-import usama.utech.youtube_video_downloader.R;
-import usama.utech.youtube_video_downloader.tasks.downloadVideo;
-import usama.utech.youtube_video_downloader.utils.Constants;
+import com.jet.jettube.MainActivity;
+import com.jet.jettube.R;
+import com.jet.jettube.tasks.downloadVideo;
+import com.jet.jettube.utils.Constants;
 
-import static usama.utech.youtube_video_downloader.utils.Constants.PREF_CLIP;
-import static usama.utech.youtube_video_downloader.utils.Constants.STOPFOREGROUND_ACTION;
+import static com.jet.jettube.utils.Constants.PREF_CLIP;
+import static com.jet.jettube.utils.Constants.STOPFOREGROUND_ACTION;
 
 
 public class ClipboardMonitor extends Service {

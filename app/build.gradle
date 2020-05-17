@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "usama.utech.youtube_video_downloader"
+        applicationId "com.jet.jettube"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

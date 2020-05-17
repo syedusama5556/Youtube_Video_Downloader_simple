@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader;
+package com.jet.jettube;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -34,17 +34,16 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.jet.jettube.databinding.ActivityMainBinding;
+import com.jet.jettube.service.ClipboardMonitor;
+import com.jet.jettube.service.Receiver;
+import com.jet.jettube.tasks.downloadVideo;
+import com.jet.jettube.utils.Constants;
+import com.jet.jettube.utils.LocaleHelper;
 
-import usama.utech.youtube_video_downloader.databinding.ActivityMainBinding;
-import usama.utech.youtube_video_downloader.service.ClipboardMonitor;
-import usama.utech.youtube_video_downloader.service.Receiver;
-import usama.utech.youtube_video_downloader.tasks.downloadVideo;
-import usama.utech.youtube_video_downloader.utils.Constants;
-import usama.utech.youtube_video_downloader.utils.LocaleHelper;
-
-import static usama.utech.youtube_video_downloader.utils.Constants.PREF_CLIP;
-import static usama.utech.youtube_video_downloader.utils.Constants.STARTFOREGROUND_ACTION;
-import static usama.utech.youtube_video_downloader.utils.Constants.STOPFOREGROUND_ACTION;
+import static com.jet.jettube.utils.Constants.PREF_CLIP;
+import static com.jet.jettube.utils.Constants.STARTFOREGROUND_ACTION;
+import static com.jet.jettube.utils.Constants.STOPFOREGROUND_ACTION;
 
 public class MainActivity extends AppCompatActivity {
 

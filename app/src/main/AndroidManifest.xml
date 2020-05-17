@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="usama.utech.youtube_video_downloader">
+    package="com.jet.jettube">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,14 +14,14 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name=".Appcontroller"
+        android:name="com.jet.jettube.Appcontroller"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DownloadVideoActivity">
+        <activity android:name="com.jet.jettube.DownloadVideoActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -30,7 +30,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.jet.jettube.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,14 +41,14 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/AdmobAppId" />
-        <receiver android:name=".service.Restarter">
+        <receiver android:name="com.jet.jettube.service.Restarter">
             <intent-filter>
                 <action android:name="restartservice" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".service.ClipboardMonitor"
+            android:name="com.jet.jettube.service.ClipboardMonitor"
             android:exported="false"
             android:label="Clipboard Monitor"
             android:stopWithTask="false"></service>

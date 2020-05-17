@@ -42,11 +42,11 @@
 
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/back_btn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/back" />
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

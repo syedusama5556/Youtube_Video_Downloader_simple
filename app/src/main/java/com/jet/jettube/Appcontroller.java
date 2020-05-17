@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader;
+package com.jet.jettube;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,13 +6,12 @@ import android.content.Context;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.jet.jettube.utils.LocaleHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-
-import usama.utech.youtube_video_downloader.utils.LocaleHelper;
 
 public class Appcontroller extends Application {
 

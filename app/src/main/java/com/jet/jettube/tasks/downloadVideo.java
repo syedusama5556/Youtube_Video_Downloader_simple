@@ -1,4 +1,4 @@
-package usama.utech.youtube_video_downloader.tasks;
+package com.jet.jettube.tasks;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -22,10 +22,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.jet.jettube.R;
+
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
-import usama.utech.youtube_video_downloader.R;
 
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.WINDOW_SERVICE;

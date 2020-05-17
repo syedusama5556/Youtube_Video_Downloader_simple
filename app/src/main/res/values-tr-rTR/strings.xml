@@ -28,4 +28,8 @@
     <string name="lod">Yükleniyor</string>
     <string name="how_the_app_works"><strong> Uygulama Nasıl Çalışır </strong></string>
     <string name="whats_new"><strong> Neler Yeni? </strong></string>
+    <string name="language">Dil</string>
+    <string name="rate">oran</string>
+    <string name="share">Paylaş</string>
+    <string name="exit">çıkış</string>
 </resources>
